@@ -1,7 +1,9 @@
 import requests
-import Credentials
+import os
+from dotenv import load_dotenv
 
-api_key = Credentials.api_key
+load_dotenv()
+api_key = os.getenv("API_key")
 
 def fetch_weather_data(user_input):
     

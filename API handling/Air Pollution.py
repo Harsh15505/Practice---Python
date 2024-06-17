@@ -1,7 +1,9 @@
 import requests
-import Credentials
+from dotenv import load_dotenv
+import os
 
-api_key = Credentials.api_key
+load_dotenv()
+api_key = os.getenv("API_key")
 
 def geocoder(user_input):
     
