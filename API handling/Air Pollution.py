@@ -1,8 +1,9 @@
 import requests
+import Credentials
 
 def geocoder(user_input):
-    api_key = "9a503fe041f05b990d94b48c306dcff1"
-    data = requests.get(f"http://api.openweathermap.org/geo/1.0/direct?q={user_input}&appid={api_key}")
+    
+    data = requests.get(f"http://api.openweathermap.org/geo/1.0/direct?q={user_input}&appid={Credentials.api_key}")
     location_data = data.json()
     coordinates = [location_data[0]['lat'], location_data[0]['lon']]
     return coordinates
@@ -10,8 +11,7 @@ def geocoder(user_input):
 
 def fetch_air_pollution_data(coordinates):
 
-    api_key = "9a503fe041f05b990d94b48c306dcff1"
-    data = requests.get(f"https://api.openweathermap.org/data/2.5/air_pollution?lat={coordinates[0]}&lon={coordinates[1]}&appid={api_key}")
+    data = requests.get(f"https://api.openweathermap.org/data/2.5/air_pollution?lat={coordinates[0]}&lon={coordinates[1]}&appid={Credentials.api_key}")
     air_pollution_data = data.json()
     return air_pollution_data
 
