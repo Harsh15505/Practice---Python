@@ -1,8 +1,10 @@
 import requests
 import Credentials
 
+api_key = Credentials.api_key
+
 def fetch_weather_data(user_input):
-    data = requests.get(f"https://api.openweathermap.org/data/2.5/weather?q={user_input}&units=metric&appid={Credentials.api_key}")
+    data = requests.get(f"https://api.openweathermap.org/data/2.5/weather?q={user_input}&units=metric&appid={api_key}")
 
     weather_data = data.json()
     return weather_data
